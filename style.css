@@ -41,7 +41,7 @@ iframe {
 
 #userName, #Description, #title, iframe{
     position: relative;
-    z-index: 2; /* Ensure the text is above the overlay */
+    z-index: 1; /* Ensure the text is above the overlay */
 }
 
 

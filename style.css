@@ -13,15 +13,37 @@ body {
     padding: 0;
     min-height: 100vh;
     font-family: var(--font);
-    background: radial-gradient(ellipse at bottom, var(--bgColor) 0%, var(--bgColor2) 100%);
-    /* background-image: url('https://bit.ly/3nFVqJh'); */
+    /* background: radial-gradient(ellipse at bottom, var(--bgColor) 0%, var(--bgColor2) 100%); */
+    background-image: url('./img/IMG_9213.JPG');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     opacity: 0;
     animation: 1s ease-out var(--delay) 1 transitionAnimation; /* duration/timing-function/delay/iterations/name */
     animation-fill-mode: forwards;
-    background-repeat: no-repeat;
-    background-size: cover;
     position: relative;
 }
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+    pointer-events: none; /* Make sure the overlay does not interfere with interactions */
+}
+
+iframe {
+    width: 100%;
+}
+
+#userName, #Description, #title, iframe{
+    position: relative;
+    z-index: 2; /* Ensure the text is above the overlay */
+}
+
 
 #profilePicture, #profilePicture img {
     position: relative;
@@ -35,7 +57,7 @@ body {
 
 #userName {
     color: var(--accentColor);
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: bold;
     line-height: 1.25;
     display: block;
@@ -43,6 +65,17 @@ body {
     width: 100%;
     text-align: center;
     text-decoration: none;
+}
+
+#Description {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.25;
+    display: block;
+    font-family: var(--font);
+    width: 100%;
+    text-align: center;
 }
 
 #links {
@@ -68,6 +101,21 @@ body {
     text-decoration: none;
     /* transition: all .25s cubic-bezier(.08, .59, .29, .99); */
     -webkit-tap-highlight-color: transparent;
+}
+
+#title {
+    color: #fff;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.25;
+    display: block;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-family: var(--font);
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
 }
 
 @media (hover: hover) {
@@ -166,7 +214,6 @@ body {
     width: auto;
     height: auto;
     margin: 56px;
-    background-color: var(--accentColor);
     /* transform: rotate(32deg); */
     transform: scale(0);
     transition: .5s ease-in-out;
@@ -178,7 +225,6 @@ body {
     position: flex;
     color: var(--accentColor);
     padding: 20px;
-    background-color: var(--bgColor);
     text-align: center;
     font-size: 1rem;
 }
